@@ -1,0 +1,136 @@
+NewQuestion,MC,
+QuestionText,"Which tool allows you to configure **Local Group Policy settings** on a Windows computer?",
+Option,0,"`secpol.msc`",
+Option,100,"`gpedit.msc`",
+Option,0,"`regedit.exe`",
+Option,0,"`control.exe`",
+
+NewQuestion,MC,
+QuestionText,"Which setting in **Local Security Policy (`secpol.msc`)** specifies how long a user must wait before retrying a failed login?",
+Option,0,"Maximum password age",
+Option,0,"Minimum password length",
+Option,100,"Account lockout duration",
+Option,0,"Password expiration warning",
+
+NewQuestion,MC,
+QuestionText,"A user reports being unable to modify a file despite having **Modify** permission. What is the most likely reason?",
+Option,0,"The user is a member of the **Administrators** group",
+Option,100,"The "Deny Write" permission is applied to another group the user belongs to",
+Option,0,"The **Full Control** permission overrides all other settings",
+Option,0,"The NTFS file system is disabled",
+
+NewQuestion,MC,
+QuestionText,"Which NTFS permission allows a user to **view folder contents** but **not modify any files**?",
+Option,0,"Modify",
+Option,100,"Read & Execute*",
+Option,0,"Write",
+Option,0,"Full Control",
+
+NewQuestion,MC,
+QuestionText,"When setting **shared folder permissions**, which of the following provides the **most restrictive** level of access?",
+Option,100,"Read",
+Option,0,"Change",
+Option,0,"Full Control",
+Option,0,"Modify",
+
+NewQuestion,MC,
+QuestionText,"If a **local GPO** contradicts an **NTFS permission**, which setting takes precedence?",
+Option,0,"NTFS permissions",
+Option,0,"Local GPO",
+Option,0,"Registry settings",
+Option,100,"The most restrictive setting",
+
+NewQuestion,MC,
+QuestionText,"What happens if the **"Deny" permission** is applied to a user in NTFS settings?",
+Option,0,"The user will have Full Control",
+Option,100,"The user is denied access, even if other groups grant access",
+Option,0,"The user can still read files but not modify them",
+Option,0,"The Deny setting is ignored if the user is an administrator",
+
+NewQuestion,MS,
+QuestionText,"Which **password policies** can be enforced using Local Group Policy Editor (`gpedit.msc`)?",
+Option,1,"Minimum password length",
+Option,1,"Enforce password history",
+Option,1,"Maximum password age",
+Option,0,"Require smart card login",
+Option,1,"Password complexity requirements",
+
+NewQuestion,MS,
+QuestionText,"When configuring **User Rights Assignment** in Local Security Policy (`secpol.msc`), which of the following can be restricted?",
+Option,1,"Log on locally",
+Option,1,"Access this computer from the network",
+Option,0,"Change desktop wallpaper",
+Option,1,"Shut down the system",
+Option,1,"Modify firmware environment values",
+
+NewQuestion,MS,
+QuestionText,"When securing **shared resources** on a standalone Windows machine, which steps are recommended?",
+Option,1,"Remove the "Everyone" group from share permissions",
+Option,1,"Set NTFS permissions instead of relying only on share permissions",
+Option,0,"Allow full control for all users",
+Option,1,"Use auditing to track access attempts",
+Option,1,"Disable the Guest account",
+
+NewQuestion,TF,
+QuestionText,"Local GPO settings apply **only to the computer they are configured on** and do not affect networked systems.",
+true,100
+false,0
+
+NewQuestion,TF,
+QuestionText,"NTFS permissions apply even if a folder is accessed over the network.",
+true,100
+false,0
+
+NewQuestion,TF,
+QuestionText,"A **user with administrative privileges** can always access all files, even if **explicit Deny permissions** are set.",
+true,0
+false,100
+
+NewQuestion,TF,
+QuestionText,"The **Account Lockout Policy** can be configured in Local Security Policy (`secpol.msc`) to prevent brute-force login attempts.",
+true,100
+false,0
+
+NewQuestion,SA,
+QuestionText,"The command used to manually **refresh Local Group Policy settings** on a Windows computer is (full command as you would type it with spaces) ____.",
+Answer,100,"gpupdate /force",
+
+NewQuestion,SA,
+QuestionText,"The Windows log file that records failed login attempts is called (two words)____.",
+Answer,100,"Security Log",
+Answer,100,"security log",
+
+NewQuestion,SA,
+QuestionText,"The **NTFS permission** that allows a user to create and delete **files** in a folder but **not modify existing files** is ____.",
+Answer,100,"Write",
+Answer,100,"write",
+
+NewQuestion,M,
+QuestionText,"Match each **security setting** with its correct Local GPO location:",
+Choice,1,"Password complexity",
+Match,1,"Local Computer Policy → Computer Configuration → Windows Settings → Security Settings → Account Policies → Password Policy",
+Choice,2,"Audit logon failures",
+Match,2,"Local Computer Policy → Computer Configuration → Windows Settings → Security Settings → Local Policies → Audit Policy",
+Choice,3,"User rights assignment",
+Match,3,"Local Computer Policy → Computer Configuration → Windows Settings → Security Settings → Local Policies → User Rights Assignment",
+Choice,4,"NTFS folder permissions",
+Match,4,"File Explorer → Right-click folder → Properties → Security tab",
+
+NewQuestion,O,
+QuestionText,"Arrange the following steps in the correct order to configure a local security policy for password complexity.",
+Item,"Open `secpol.msc`",
+Item,"Navigate to **Account Policies → Password Policy**",
+Item,"Double-click **"Password must meet complexity requirements"**",
+Item,"Select **Enabled**",
+Item,"Click **OK** and close the window",
+Item,"Restart the computer (if required)",
+
+NewQuestion,O,
+QuestionText,"Arrange the following steps to **secure a shared folder using NTFS permissions",
+Item,"Right-click the folder and select **Properties**",
+Item,"Go to the **Security** tab",
+Item,"Click **Edit** to modify permissions",
+Item,"Remove **unnecessary users** from the permission list",
+Item,"Assign **Read & Execute** or **Modify** based on requirements",
+Item,"Click **Apply**, then **OK**",
+

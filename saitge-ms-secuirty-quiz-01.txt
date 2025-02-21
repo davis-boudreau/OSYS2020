@@ -1,0 +1,54 @@
+1. Which of the following is the primary reason why zero-day vulnerabilities are dangerous?  
+   a) They exploit outdated hardware  
+   *b) They have no known patch at the time of discovery  
+   c) They primarily target antivirus software  
+   d) They only affect non-administrator accounts  
+
+2. What is a key risk of improper patch management?  
+   a) It slows down network performance but does not affect security  
+   b) It prevents unauthorized software installations  
+   *c) It can leave systems vulnerable to known exploits  
+   d) It automatically disables security features  
+
+3. Which of the following factors can cause patching failures in an enterprise environment?  
+   *a) Software dependencies and conflicts  
+   *b) End-users disabling automatic updates  
+   c) High-speed internet connections  
+   *d) Incomplete rollback mechanisms  
+   e) Increased CPU performance  
+
+4. Which of the following tools or features are used to apply security updates on Windows?  
+   *a) WSUS (Windows Server Update Services)  
+   *b) Microsoft SCCM (System Center Configuration Manager)  
+   c) Telnet  
+   *d) Group Policy Objects (GPO)  
+   e) BIOS firmware updates  
+
+5. Patch Tuesday is a scheduled release of security updates from Microsoft, typically occurring on the second Tuesday of each month.  
+   True
+
+6. Service packs contain only security patches and do not include feature updates or bug fixes.  
+   False
+
+blank 7. Name the Windows tool that allows administrators to centrally manage updates for multiple computers (4 letter acronym or fully spelled out with spaces) ____.  
+   a. WSUS
+   b. wsus  
+   c. Windows Server Update Services
+   d. windows server update services
+
+blank 8. What is the term for a pre-configured security setting that enforces best practices on a Windows system?  
+   a. baselines
+
+match 9. Match the Windows security feature with its description.  
+   a. Group Policy / Centralized management of user and computer settings  
+   b. BitLocker / Disk encryption to protect data at rest  
+   c. WSUS / Deploys and manages Windows updates in an enterprise  
+   d. UAC / Limits the privileges of user accounts to reduce attack surface  
+
+order 10. Arrange the following steps in the correct order for manually installing a Windows update using the Microsoft Update Catalog.  
+Identify the required update  
+Download the update from the Microsoft Update Catalog  
+Run the downloaded update file  
+Restart the system if required  
+Verify the installation in Windows Update history  
+

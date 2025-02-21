@@ -1,0 +1,76 @@
+NewQuestion,MC,
+QuestionText,"Which of the following is the primary reason why zero-day vulnerabilities are dangerous?",
+Option,0,"They exploit outdated hardware",
+Option,100,"They have no known patch at the time of discovery",
+Option,0,"They primarily target antivirus software",
+Option,0,"They only affect non-administrator accounts",
+
+NewQuestion,MC,
+QuestionText,"What is a key risk of improper patch management?",
+Option,0,"It slows down network performance but does not affect security",
+Option,0,"It prevents unauthorized software installations",
+Option,100,"It can leave systems vulnerable to known exploits",
+Option,0,"It automatically disables security features",
+
+NewQuestion,MS,
+QuestionText,"Which of the following factors can cause patching failures in an enterprise environment?",
+Option,1,"Software dependencies and conflicts",
+Option,1,"End-users disabling automatic updates",
+Option,0,"High-speed internet connections",
+Option,1,"Incomplete rollback mechanisms",
+Option,0,"Increased CPU performance",
+
+NewQuestion,MS,
+QuestionText,"Which of the following tools or features are used to apply security updates on Windows?",
+Option,1,"WSUS (Windows Server Update Services)",
+Option,1,"Microsoft SCCM (System Center Configuration Manager)",
+Option,0,"Telnet",
+Option,1,"Group Policy Objects (GPO)",
+Option,0,"BIOS firmware updates",
+
+NewQuestion,TF,
+QuestionText,"Patch Tuesday is a scheduled release of security updates from Microsoft, typically occurring on the second Tuesday of each month.",
+true,100
+false,0
+
+NewQuestion,TF,
+QuestionText,"Service packs contain only security patches and do not include feature updates or bug fixes.",
+true,0
+false,100
+
+NewQuestion,SA,
+QuestionText,"Name the Windows tool that allows administrators to centrally manage updates for multiple computers (4 letter acronym or fully spelled out with spaces) ____.",
+Answer,100,"WSUS",
+Answer,100,"wsus",
+Answer,100,"Windows Server Update Services",
+Answer,100,"windows server update services",
+
+NewQuestion,SA,
+QuestionText,"What is the term for a pre-configured security setting that enforces best practices on a Windows system?",
+Answer,100,"Security template",
+Answer,100,"security template",
+Answer,100,"Security template",
+Answer,100,"security Template",
+Answer,100,"Baseline configuration",
+Answer,100,"baseline configuration",
+Answer,100,"baseline Configuration",
+
+NewQuestion,M,
+QuestionText,"Match the Windows security feature with its description.",
+Choice,1,"Group Policy",
+Match,1,"Centralized management of user and computer settings",
+Choice,2,"BitLocker",
+Match,2,"Disk encryption to protect data at rest",
+Choice,3,"WSUS",
+Match,3,"Deploys and manages Windows updates in an enterprise",
+Choice,4,"UAC",
+Match,4,"Limits the privileges of user accounts to reduce attack surface",
+
+NewQuestion,O,
+QuestionText,"Arrange the following steps in the correct order for manually installing a Windows update using the Microsoft Update Catalog.",
+Item,"Identify the required update",
+Item,"Download the update from the Microsoft Update Catalog",
+Item,"Run the downloaded update file",
+Item,"Restart the system if required",
+Item,"Verify the installation in Windows Update history",
+
