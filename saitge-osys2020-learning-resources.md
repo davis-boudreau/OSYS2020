@@ -9,7 +9,7 @@
 **Free Resources**
 
 * **Microsoft Learn – Security Fundamentals**
-  [https://learn.microsoft.com/training/paths/security-fundamentals/](https://learn.microsoft.com/training/paths/security-fundamentals/)
+  [https://learn.microsoft.com/en-us/training/paths/describe-basic-concepts-of-cybersecurity/](https://learn.microsoft.com/en-us/training/paths/describe-basic-concepts-of-cybersecurity/)
 * **CISA – Cybersecurity 101**
   [https://www.cisa.gov/cybersecurity](https://www.cisa.gov/cybersecurity)
 * **Krebs on Security (Articles)**
