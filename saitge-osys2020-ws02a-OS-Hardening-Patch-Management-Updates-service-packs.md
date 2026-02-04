@@ -11,6 +11,7 @@
 | **Workshop Title**   | Workshop 02 – OS Hardening with Patch Management        |
 | **Course Code**      | OSYS2020                                                |
 | **Course Title**     | Windows Security                                        |
+| **Instructor**       | Davis Boudreau                                          |
 | **Assignment Type**  | Guided Hands-On Workshop                                |
 | **Weight**           | Not Graded (Formative – Required for later evaluations) |
 | **Estimated Effort** | 2–3 hours                                               |
@@ -195,7 +196,7 @@ Write short reflective responses:
 
 ## **6. Deliverables**
 
-Submit **one document** (PDF or Word) containing:
+Submit **one document** (Word) containing:
 
 * Patch status summary for both systems
 * Evidence of updates applied (screenshots optional)
@@ -267,18 +268,5 @@ Instructor feedback will prepare you for:
 
 © Nova Scotia Community College
 For educational use within OSYS2020 only.
-
----
-
-### **Looking Ahead**
-
-This workshop prepares you for:
-
-* **Workshop 03:** Security Baselines & Configuration Standards
-* **Later labs:** GPO-controlled patching and compliance monitoring
-
-You have now moved from:
-
-> *building systems* → *hardening systems*
 
 ---
