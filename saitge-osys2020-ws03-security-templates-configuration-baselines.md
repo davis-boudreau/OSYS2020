@@ -140,18 +140,251 @@ Identify recommendations related to:
 
 On **each system**, explore:
 
-* **Local Security Policy**
+### **Top 15 Security Settings – Windows Client (Windows 11)**
 
-  * Password Policy
-  * Account Lockout Policy
-  * Audit Policy
-* **Local Users and Groups**
-* **Security Options**
+Windows clients are the **primary entry point** for attackers.
+The focus here is **credential protection, privilege control, visibility, and attack surface reduction**.
 
-Create a comparison table with **at least five (5)** settings:
+---
 
-| Setting | Baseline Recommendation | Current Setting | Compliant (Yes/No) |
-| ------- | ----------------------- | --------------- | ------------------ |
+### **1. Minimum Password Length**
+
+* **Baseline:** 12–14 characters
+* **Why it matters:** Prevents brute-force and password-spraying attacks
+* **Security goal:** Confidentiality
+
+---
+
+### **2. Password Complexity Requirements**
+
+* Mixed character sets
+* Blocks dictionary-based attacks
+* **Security goal:** Confidentiality
+
+---
+
+### **3. Maximum Password Age**
+
+* **Baseline:** 60–90 days
+* Prevents long-term credential reuse
+* **Security goal:** Confidentiality
+
+---
+
+### **4. Account Lockout Threshold**
+
+* **Baseline:** 5–10 failed attempts
+* Limits automated login attacks
+* **Security goal:** Availability + Confidentiality
+
+---
+
+### **5. Account Lockout Duration**
+
+* **Baseline:** 15+ minutes
+* Slows attackers without permanently locking users
+* **Security goal:** Availability
+
+---
+
+### **6. User Account Control (UAC) Enforcement**
+
+* High or “Always Notify”
+* Blocks silent privilege escalation
+* **Security goal:** Integrity
+
+---
+
+### **7. Local Administrators Group Membership**
+
+* Minimal, tightly controlled
+* Avoid daily-use admin accounts
+* **Security goal:** Integrity
+
+---
+
+### **8. Audit Logon Events (Success & Failure)**
+
+* Required for intrusion detection
+* **Security goal:** Accountability
+
+---
+
+### **9. Audit Account Management**
+
+* Tracks user and group changes
+* Detects persistence attempts
+* **Security goal:** Accountability
+
+---
+
+### **10. Disable Guest Account**
+
+* Guest = unauthenticated access
+* **Security goal:** Confidentiality
+
+---
+
+### **11. Do Not Display Last Signed-In User**
+
+* Prevents username harvesting
+* **Security goal:** Confidentiality
+
+---
+
+### **12. LAN Manager Authentication Level**
+
+* **Baseline:** NTLMv2 only
+* Disables legacy authentication
+* **Security goal:** Integrity
+
+---
+
+### **13. Windows Defender Real-Time Protection**
+
+* Must be enabled and updated
+* Detects commodity malware
+* **Security goal:** Integrity
+
+---
+
+### **14. Windows Firewall Enabled (All Profiles)**
+
+* Blocks unsolicited inbound traffic
+* **Security goal:** Availability + Integrity
+
+---
+
+### **15. Removable Storage Access Control**
+
+* Restrict or audit USB storage
+* Reduces malware and data exfiltration risk
+* **Security goal:** Confidentiality + Integrity
+
+---
+
+### **Top 15 Security Settings – Windows Server (Domain Controller)**
+
+Domain controllers protect **identity, authentication, and trust**.
+These settings emphasize **containment, monitoring, and blast-radius reduction**.
+
+---
+
+### **1. Minimum Password Length (Stricter Than Clients)**
+
+* **Baseline:** 14–16 characters
+* Protects high-value credentials
+* **Security goal:** Confidentiality
+
+---
+
+### **2. Account Lockout Threshold (Carefully Tuned)**
+
+* Prevents brute-force attacks
+* Avoids administrative lockout
+* **Security goal:** Availability + Confidentiality
+
+---
+
+### **3. Limit “Log on Locally” Rights**
+
+* DCs should not be used interactively
+* **Security goal:** Integrity
+
+---
+
+### **4. Restrict Remote Desktop Access**
+
+* RDP is a top attack vector
+* Limit to approved admins
+* **Security goal:** Integrity
+
+---
+
+### **5. Expanded Audit Policies**
+
+* Log:
+
+  * Logon events
+  * Account management
+  * Privilege use
+  * Policy changes
+* **Security goal:** Accountability
+
+---
+
+### **6. Audit Directory Service Access**
+
+* Tracks changes to AD objects
+* Critical for incident response
+* **Security goal:** Accountability
+
+---
+
+### **7. User Rights: “Debug Programs”**
+
+* Allows deep system access
+* **Baseline:** Administrators only
+* **Security goal:** Integrity
+
+---
+
+### **8. Disable Legacy Authentication Protocols**
+
+* Disable LM
+* Restrict NTLM
+* Prefer Kerberos
+* **Security goal:** Integrity
+
+---
+
+### **9. User Account Control for Built-in Administrator**
+
+* Prevents unrestricted admin execution
+* **Security goal:** Integrity
+
+---
+
+### **10. Service Account Privilege Restrictions**
+
+* No interactive logon
+* Least privilege only
+* **Security goal:** Integrity
+
+---
+
+### **11. Windows Defender / AV Enabled**
+
+* DCs are not exempt from malware
+* **Security goal:** Integrity
+
+---
+
+### **12. Windows Firewall Enabled**
+
+* Restrict unnecessary inbound access
+* **Security goal:** Availability + Integrity
+
+---
+
+### **13. Secure Boot (Where Supported)**
+
+* Prevents boot-level tampering
+* **Security goal:** Integrity
+
+---
+
+### **14. Patch Compliance (Zero Critical Outstanding)**
+
+* DCs must be prioritized
+* **Security goal:** Integrity + Availability
+
+---
+
+### **15. Limit Membership of Domain Admins**
+
+* Smaller admin group = lower risk
+* **Security goal:** Integrity + Accountability
 
 ---
 
