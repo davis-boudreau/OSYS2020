@@ -11,6 +11,7 @@
 | **Workshop Title**   | Workshop 02 – OS Hardening with Patch Management        |
 | **Course Code**      | OSYS2020                                                |
 | **Course Title**     | Windows Security                                        |
+| **Instructor**       | Davis Boudreau                                          |
 | **Assignment Type**  | Guided Hands-On Workshop                                |
 | **Weight**           | Not Graded (Formative – Required for later evaluations) |
 | **Estimated Effort** | 2–3 hours                                               |
@@ -195,24 +196,34 @@ Write short reflective responses:
 
 ## **6. Deliverables**
 
-Submit **one document** (PDF or Word) containing:
+You are required to complete the **Workshop 02 fillable work form** provided by your instructor.
 
-* Patch status summary for both systems
-* Evidence of updates applied (screenshots optional)
-* Answers to analysis and reflection questions
+### **Instructions**
 
-**File name format:**
-`StudentID_OSYS2020_Workshop02_PatchManagement`
+1. Download the provided Word form:
+
+   * **Workshop 02 – Patch Management (Fillable Form)**
+2. Complete **all sections** of the form as you work through this workshop.
+3. Enter your responses directly into the form fields.
+4. Save the completed file using the following naming convention:
+
+```
+StudentID_OSYS2020_Workshop02a_PatchManagement.docx
+```
+
+5. Submit the completed Word document to **Brightspace**.
+
+> Screenshots are optional and may be embedded in the form if helpful.
 
 ---
 
 ## **7. Reflection Questions**
 
-Include responses to:
+Your reflection responses must be completed **inside the work form** and should address:
 
-* How does patch management reduce attack surface?
-* What risks exist when patching is delayed?
-* How does patching support overall OS hardening?
+* How patch management reduces attack surface
+* The risks of delayed patching
+* How patching contributes to overall OS hardening
 
 ---
 
@@ -224,10 +235,11 @@ Include responses to:
 
 ### **Success Criteria**
 
-* Accurate assessment of update status
-* Successful application of updates
-* Clear explanation of patch-related risk
-* Thoughtful reflection demonstrating security reasoning
+* Work form fully completed
+* Patch status accurately recorded
+* Updates applied and validated
+* Risk analysis demonstrates security reasoning
+* Reflection responses are thoughtful and specific
 
 Instructor feedback will prepare you for:
 
@@ -240,8 +252,7 @@ Instructor feedback will prepare you for:
 ## **9. Submission Guidelines**
 
 * Submit via **Brightspace**
-* One document per student
-* Screenshots are optional but encouraged
+* One Word document per student
 * Partial submissions accepted with documented blockers
 
 ---
@@ -267,18 +278,5 @@ Instructor feedback will prepare you for:
 
 © Nova Scotia Community College
 For educational use within OSYS2020 only.
-
----
-
-### **Looking Ahead**
-
-This workshop prepares you for:
-
-* **Workshop 03:** Security Baselines & Configuration Standards
-* **Later labs:** GPO-controlled patching and compliance monitoring
-
-You have now moved from:
-
-> *building systems* → *hardening systems*
 
 ---
