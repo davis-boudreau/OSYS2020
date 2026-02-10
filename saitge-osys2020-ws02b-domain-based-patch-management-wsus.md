@@ -1,6 +1,6 @@
 # **OSYS2020 – Windows Security**
 
-## **Workshop 02 (Extended): Domain-Based Patch Management & WSUS Concepts**
+## **Workshop 02b (Extended): Domain-Based Patch Management & WSUS Concepts**
 
 ---
 
@@ -207,7 +207,7 @@ Write reflective responses:
 
 ## **6. Deliverables**
 
-Submit **one document** (PDF or Word) containing:
+Submit **one document** (Word) containing:
 
 * WSUS concept explanations
 * Patch ring model description
