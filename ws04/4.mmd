@@ -1,0 +1,19 @@
+---
+config:
+  layout: elk
+---
+flowchart LR
+    U1[sales-user-morgan]
+    U2[sales-mgr-chris]
+    U3[sales-dir-dana]
+
+    G1[SALES-Users]
+    G2[SALES-Managers]
+    G3[SALES-Directors]
+
+    U1 -. member of .-> G1
+    U2 -. member of .-> G1
+    U2 -. member of .-> G2
+    U3 -. member of .-> G1
+    U3 -. member of .-> G2
+    U3 -. member of .-> G3

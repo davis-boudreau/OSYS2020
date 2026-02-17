@@ -1,0 +1,22 @@
+---
+config:
+  layout: elk
+---
+flowchart TD
+    A[osys.local]
+    A --> U[CBB-Users]
+    A --> G[CBB-Groups]
+    A --> C[CBB-Computers]
+
+    U --> HR[HR]
+    U --> ENG[Engineering]
+    U --> SALES[Sales]
+    U --> MKT[Marketing]
+    U --> FIN[Finance]
+    U --> IT[IT]
+
+    G --> DG[Department-Groups]
+    G --> IG[IT-Admin-Groups]
+
+    C --> WS[Workstations]
+    C --> SV[Servers]
