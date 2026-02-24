@@ -1,0 +1,19 @@
+---
+config:
+  layout: elk
+---
+flowchart LR
+    IT1[it-helpdesk-lee]
+    IT2[it-sysadmin-ash]
+    IT3[it-secadmin-morgan]
+    IT4[it-domainadmin-jordan]
+
+    G1[IT-Helpdesk]
+    G2[IT-Server-Admins]
+    G3[IT-Security-Admins]
+    G4[IT-Domain-Admins]
+
+    IT1 -.-> G1
+    IT2 -.-> G2
+    IT3 -.-> G3
+    IT4 -.-> G4
