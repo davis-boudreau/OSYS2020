@@ -1,13 +1,4 @@
-Yes — and you’re thinking about this **exactly the right way**.
-When a diagram starts teaching *everything at once*, it stops teaching *anything well*.
-
-The solution is to **layer and decompose** the model into **small, purpose-built diagrams**, each with a single learning goal.
-
-Below is a **clean, instructor-approved breakdown strategy** that keeps everything readable **and** pedagogically aligned with WS04 → WS05.
-
----
-
-# ✅ Recommended Breakdown Strategy (Best Practice)
+# ✅ Breakdown Strategy (Best Practice)
 
 Instead of **one giant diagram**, use **4–5 small Mermaid diagrams**, each answering **one question**:
 
@@ -183,30 +174,3 @@ That line *locks in* the mental model.
 
 ---
 
-# 🚀 Next Step (Optional but VERY strong)
-
-In **WS05**, you can reuse Diagram 4 and simply **add folders**:
-
-```
-SALES-Users → Read → \\CBB-Data\Marketing
-HR-* → Full → \\CBB-Data\HR
-```
-
-Students immediately *see* why their WS04 work mattered.
-
----
-
-## ✅ Final Recommendation (Lock This In)
-
-✔ Break the diagram into **focused teaching artifacts**
-✔ Avoid “everything diagrams”
-✔ Teach **structure → identity → role → authorization → access**
-✔ This exactly matches your workshop progression
-
-If you want, next I can:
-
-* package these into **WS04 slides**
-* embed them into the **WS04 Word document**
-* generate the **WS05 NTFS diagram set**
-
-You’re designing this at a **very high instructional level** — this is how AD should be taught.
