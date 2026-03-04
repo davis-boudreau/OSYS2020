@@ -1,286 +1,190 @@
-You’re absolutely right — once students have the **top 10**, expanding to **top 15** is the sweet spot:
-it adds *real depth* without turning the exercise into noise.
+# What Happens When Inheritance Is Broken Incorrectly
 
-Below is a **carefully curated Top 15 Security Baseline Settings** list for **Windows Clients** and **Windows Servers (Domain Controllers)**, expanded **intentionally** (not padded), and still fully aligned with:
+NTFS inheritance is powerful because it allows administrators to manage permissions **once at a higher level** and have those permissions automatically propagate throughout the folder structure.
 
-* Workshop 00 (Domain foundations)
-* Workshop 02 (Patch management / WSUS thinking)
-* Workshop 03 (Baselines before enforcement)
-* Upcoming GPO labs
+However, if inheritance is disabled **improperly**, security can become inconsistent and difficult to manage.
 
-This is **student-facing**, but solid enough to double as an **instructor reference**.
+This problem is commonly referred to as **permission drift**.
 
----
+Permission drift occurs when:
 
-# **Top 15 Security Baseline Settings**
+* inheritance is disabled unnecessarily
+* permissions are manually modified at many levels
+* administrators lose visibility into the overall access structure
 
-## **Windows Clients vs. Windows Servers**
-
-> These settings represent the **highest security impact per configuration change** in real Windows environments.
+Over time, the security model becomes unpredictable.
 
 ---
 
-# **A. Top 15 Security Settings – Windows Client (Windows 11)**
+## Example: Correct Permission Architecture
 
-Windows clients are the **primary entry point** for attackers.
-The focus here is **credential protection, privilege control, visibility, and attack surface reduction**.
+In a properly designed structure, permissions flow cleanly from the department folder to all child folders.
 
----
+```mermaid
+flowchart TD
+    Root[CBB-Data Root]
 
-### **1. Minimum Password Length**
+    Root --> HR[HR Department<br>Inheritance Disabled]
+    HR --> Payroll[Payroll]
+    HR --> Hiring[Hiring]
 
-* **Baseline:** 12–14 characters
-* **Why it matters:** Prevents brute-force and password-spraying attacks
-* **Security goal:** Confidentiality
+    Root --> Finance[Finance Department<br>Inheritance Disabled]
+    Finance --> Accounting
+    Finance --> Budget
+```
 
----
+In this design:
 
-### **2. Password Complexity Requirements**
+* HR permissions apply to **Payroll and Hiring**
+* Finance permissions apply to **Accounting and Budget**
+* Security boundaries remain **predictable and easy to audit**
 
-* Mixed character sets
-* Blocks dictionary-based attacks
-* **Security goal:** Confidentiality
-
----
-
-### **3. Maximum Password Age**
-
-* **Baseline:** 60–90 days
-* Prevents long-term credential reuse
-* **Security goal:** Confidentiality
+Administrators can easily verify access control.
 
 ---
 
-### **4. Account Lockout Threshold**
+## Example: Broken Inheritance and Permission Drift
 
-* **Baseline:** 5–10 failed attempts
-* Limits automated login attacks
-* **Security goal:** Availability + Confidentiality
+Now consider what happens when inheritance is disabled in multiple locations without a clear design.
 
----
+```mermaid
+flowchart TD
+    Root[CBB-Data Root]
 
-### **5. Account Lockout Duration**
+    Root --> HR[HR Department]
+    HR --> Payroll[Payroll<br>Inheritance Disabled]
+    HR --> Hiring[Hiring]
 
-* **Baseline:** 15+ minutes
-* Slows attackers without permanently locking users
-* **Security goal:** Availability
+    Root --> Finance[Finance Department]
+    Finance --> Accounting[Accounting<br>Manual Permissions]
+    Finance --> Budget
+```
 
----
+Problems now occur:
 
-### **6. User Account Control (UAC) Enforcement**
+* Payroll no longer follows HR security rules
+* Accounting permissions may differ from Finance policies
+* Administrators must manually inspect each folder
+* Access becomes inconsistent across the organization
 
-* High or “Always Notify”
-* Blocks silent privilege escalation
-* **Security goal:** Integrity
-
----
-
-### **7. Local Administrators Group Membership**
-
-* Minimal, tightly controlled
-* Avoid daily-use admin accounts
-* **Security goal:** Integrity
+In large file servers containing **hundreds of thousands of folders**, this situation becomes extremely difficult to manage.
 
 ---
 
-### **8. Audit Logon Events (Success & Failure)**
+## Real-World Consequences of Permission Drift
 
-* Required for intrusion detection
-* **Security goal:** Accountability
+Improper inheritance design can lead to serious issues:
 
----
+### Data Exposure
 
-### **9. Audit Account Management**
+Sensitive files may become accessible to unauthorized users.
 
-* Tracks user and group changes
-* Detects persistence attempts
-* **Security goal:** Accountability
+Example:
 
----
-
-### **10. Disable Guest Account**
-
-* Guest = unauthenticated access
-* **Security goal:** Confidentiality
+```
+Payroll records accidentally readable by Sales staff
+```
 
 ---
 
-### **11. Do Not Display Last Signed-In User**
+### Access Failures
 
-* Prevents username harvesting
-* **Security goal:** Confidentiality
+Employees cannot access files required for their job.
 
----
+Example:
 
-### **12. LAN Manager Authentication Level**
-
-* **Baseline:** NTLMv2 only
-* Disables legacy authentication
-* **Security goal:** Integrity
+```
+Finance staff blocked from budget documents
+```
 
 ---
 
-### **13. Windows Defender Real-Time Protection**
+### Administrative Complexity
 
-* Must be enabled and updated
-* Detects commodity malware
-* **Security goal:** Integrity
+IT staff must troubleshoot folder permissions manually.
 
----
+This often requires:
 
-### **14. Windows Firewall Enabled (All Profiles)**
-
-* Blocks unsolicited inbound traffic
-* **Security goal:** Availability + Integrity
+* reviewing ACL entries
+* examining inheritance settings
+* analyzing group membership
+* using Effective Access tools
 
 ---
 
-### **15. Removable Storage Access Control**
+### Audit and Compliance Risks
 
-* Restrict or audit USB storage
-* Reduces malware and data exfiltration risk
-* **Security goal:** Confidentiality + Integrity
+Many regulatory frameworks require strict data access control:
 
----
+* PCI-DSS
+* HIPAA
+* ISO 27001
+* SOC 2
 
-# **B. Top 15 Security Settings – Windows Server (Domain Controller)**
-
-Domain controllers protect **identity, authentication, and trust**.
-These settings emphasize **containment, monitoring, and blast-radius reduction**.
+Broken inheritance chains can result in **failed security audits**.
 
 ---
 
-### **1. Minimum Password Length (Stricter Than Clients)**
+## Best Practice: Control Where Inheritance Is Broken
 
-* **Baseline:** 14–16 characters
-* Protects high-value credentials
-* **Security goal:** Confidentiality
+Professional administrators follow a simple rule:
 
----
+```
+Inheritance should only be broken at defined security boundaries.
+```
 
-### **2. Account Lockout Threshold (Carefully Tuned)**
+Examples:
 
-* Prevents brute-force attacks
-* Avoids administrative lockout
-* **Security goal:** Availability + Confidentiality
+| Folder  | Reason                                |
+| ------- | ------------------------------------- |
+| HR      | Confidential employee data            |
+| Finance | Payroll and financial information     |
+| Legal   | Contracts and sensitive documentation |
 
----
-
-### **3. Limit “Log on Locally” Rights**
-
-* DCs should not be used interactively
-* **Security goal:** Integrity
+Folders that do **not represent security boundaries** should typically **retain inheritance**.
 
 ---
 
-### **4. Restrict Remote Desktop Access**
+## Visual Summary
 
-* RDP is a top attack vector
-* Limit to approved admins
-* **Security goal:** Integrity
+A healthy NTFS design looks like this:
 
----
+```mermaid
+flowchart LR
+    Volume[Data Volume]
+    Share[CBB-Data]
+    Dept[Department Folder]
+    Sub[Subfolder]
+    File[Files]
 
-### **5. Expanded Audit Policies**
+    Volume --> Share
+    Share --> Dept
+    Dept --> Sub
+    Sub --> File
+```
 
-* Log:
+Permissions flow consistently downward through the structure.
 
-  * Logon events
-  * Account management
-  * Privilege use
-  * Policy changes
-* **Security goal:** Accountability
+When inheritance is controlled carefully, administrators gain:
 
----
-
-### **6. Audit Directory Service Access**
-
-* Tracks changes to AD objects
-* Critical for incident response
-* **Security goal:** Accountability
-
----
-
-### **7. User Rights: “Debug Programs”**
-
-* Allows deep system access
-* **Baseline:** Administrators only
-* **Security goal:** Integrity
+* predictable security
+* simplified management
+* scalable file server architecture
 
 ---
 
-### **8. Disable Legacy Authentication Protocols**
+## Instructor Insight
 
-* Disable LM
-* Restrict NTLM
-* Prefer Kerberos
-* **Security goal:** Integrity
+In real enterprise environments, file servers can contain:
 
----
+```
+Millions of files
+Hundreds of thousands of folders
+Thousands of users
+```
 
-### **9. User Account Control for Built-in Administrator**
+Without inheritance, managing NTFS permissions at this scale would be nearly impossible.
 
-* Prevents unrestricted admin execution
-* **Security goal:** Integrity
-
----
-
-### **10. Service Account Privilege Restrictions**
-
-* No interactive logon
-* Least privilege only
-* **Security goal:** Integrity
-
----
-
-### **11. Windows Defender / AV Enabled**
-
-* DCs are not exempt from malware
-* **Security goal:** Integrity
-
----
-
-### **12. Windows Firewall Enabled**
-
-* Restrict unnecessary inbound access
-* **Security goal:** Availability + Integrity
-
----
-
-### **13. Secure Boot (Where Supported)**
-
-* Prevents boot-level tampering
-* **Security goal:** Integrity
-
----
-
-### **14. Patch Compliance (Zero Critical Outstanding)**
-
-* DCs must be prioritized
-* **Security goal:** Integrity + Availability
-
----
-
-### **15. Limit Membership of Domain Admins**
-
-* Smaller admin group = lower risk
-* **Security goal:** Integrity + Accountability
-
----
-
-## **How Students Should Use the Top 15 Lists**
-
-For the **Baseline Comparison Worksheet**:
-
-* Choose **5–7 settings**
-* Mix **credential**, **privilege**, and **audit** controls
-* Prefer settings that:
-
-  * protect identity
-  * limit admin power
-  * provide visibility
-* Ask:
-
-  > “Would I enforce this via Group Policy, and why?”
+This is why **understanding inheritance is one of the most important skills for Windows system administrators**.
 
 ---
