@@ -177,14 +177,14 @@ On **OSYS-DC01**:
 ```
 Server Manager
  → Tools
- → Computer Management
+ → Active Directory Users and Computers
 ```
 
 Navigate to:
 
 ```
-Local Users and Groups
- → Groups
+osys.local
+ → Builtin
 ```
 
 ---
@@ -352,7 +352,7 @@ Students `who are not present during the workshop` must submit a document contai
 • User Rights Assignment table
 • Case study explanation
 • Discovery exercise findings
-• Reflection answers
+• Reflection answers (Please see Quizzes)
 
 File name:
 
